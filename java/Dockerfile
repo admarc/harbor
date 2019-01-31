@@ -1,6 +1,7 @@
-FROM admarc/linux
+FROM admarc/linux:alpine
 MAINTAINER admarc
-RUN apt-get update \
-    && apt-get install -y openjdk-8-jdk \
-    && rm -rf /var/lib/apt/lists/*
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+
+RUN apk add --no-cache openjdk8
